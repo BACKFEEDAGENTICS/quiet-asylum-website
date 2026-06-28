@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: quiet-asylum-website
+    env: static
+    buildCommand: ""
+    publishPath: "."
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: max-age=31536000
