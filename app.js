@@ -18,7 +18,8 @@ const albums = {
             { num: 9, title: "Doesn't Have To Be This Way (Remastered)", file: "9. doesn't-have-to-be-this-way-(remastered).mp3" },
             { num: 10, title: "Even In The Silence You'll Know (Remastered)", file: "10. even-in-the-silence-you'll-know--(remastered).mp3" }
         ],
-        folder: "only-when-i-dream"
+        folder: "only-when-i-dream",
+        description: "Only When I Dream About It is the fifth full-length studio release by Quiet Asylum. Written over a span of six months and completed in June 2026, the album is a deeply introspective journey through themes of emotional weariness, romantic disillusionment, and nocturnal escapism. Musically, it blends atmospheric dream-pop textures with lo-fi beats and raw, melancholic vocal performances. It captures the heavy silence of late-night drives, the bitter realization of one-sided kindness, and the quiet search for peace that can only be found when dreaming."
     },
     happy: {
         title: "VI. I Hope You're Happy",
@@ -36,7 +37,8 @@ const albums = {
             { num: 9, title: "Just An Outcast", file: "9. just-an-outcast.mp3" },
             { num: 10, title: "All I Wanted To Do", file: "10. all-i-wanted-to-do.mp3" }
         ],
-        folder: "i-hope-youre-happy"
+        folder: "i-hope-youre-happy",
+        description: "I Hope You're Happy is the sixth studio album by Quiet Asylum. Completed in June 2026, this record presents a bittersweet and sharply nostalgic collection of tracks exploring themes of past relationships, alienation, and modern disaffection. Musically and lyrically, the album balances catchy indie-rock hooks with cynical, self-deprecating narratives. It acts as a time capsule looking back to '09, exploring what it means to feel like an outcast, and ultimately finding a sharp, resigned acceptance of moving on."
     }
 };
 
@@ -142,6 +144,7 @@ function loadAlbum(albumKey) {
     const album = albums[albumKey];
     trackListEl.innerHTML = '';
     trackCountEl.textContent = `${album.tracks.length} Tracks`;
+    document.getElementById('album-summary-text').textContent = album.description;
     
     album.tracks.forEach((track, index) => {
         const li = document.createElement('li');

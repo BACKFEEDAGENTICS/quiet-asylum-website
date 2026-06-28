@@ -559,6 +559,33 @@ body {
     box-shadow: 0 0 8px var(--glow);
 }
 
+/* Album Summary Panel */
+.album-summary-container {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    text-align: left;
+    z-index: 2;
+}
+
+.album-summary-container h3 {
+    font-family: var(--font-header);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+}
+
+.album-summary-container p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
 /* App Footer styling */
 .app-footer {
     text-align: center;
