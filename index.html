@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiet Asylum - Music Streaming</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-glows">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <header class="app-header">
+        <div class="logo-area">
+            <span class="logo-icon"><i class="fa-solid fa-compact-disc"></i></span>
+            <h1 class="brand-name">Quiet Asylum</h1>
+        </div>
+        <nav class="album-toggle">
+            <button id="btn-dream" class="nav-btn active" data-album="dream">
+                <i class="fa-solid fa-moon"></i> Only When I Dream About It
+            </button>
+            <button id="btn-happy" class="nav-btn" data-album="happy">
+                <i class="fa-solid fa-face-smile-beam"></i> I Hope You're Happy
+            </button>
+        </nav>
+    </header>
+
+    <main class="player-container">
+        <!-- Sidebar containing Playlist/Tracklist -->
+        <aside class="playlist-sidebar">
+            <div class="sidebar-header">
+                <h2>Tracks</h2>
+                <span id="track-count" class="badge">0 Tracks</span>
+            </div>
+            <ul id="track-list" class="track-list">
+                <!-- Dynamically populated in app.js -->
+            </ul>
+        </aside>
+
+        <!-- Main Audio Player interface -->
+        <section class="player-main">
+            <div class="now-playing-card">
+                <div class="album-art-container">
+                    <img id="album-art" src="assets/images/dream-cover.jpg" alt="Album Cover" class="album-art">
+                    <div class="visualizer-container">
+                        <canvas id="visualizer-canvas"></canvas>
+                    </div>
+                </div>
+                
+                <div class="track-details">
+                    <h2 id="player-title">Track Title</h2>
+                    <p id="player-artist">Quiet Asylum</p>
+                    <p id="player-album" class="album-sub">Only When I Dream About It</p>
+                </div>
+
+                <!-- Custom Audio Control Seekbar -->
+                <div class="playback-progress">
+                    <span id="current-time">0:00</span>
+                    <div class="progress-bar-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <span id="total-duration">0:00</span>
+                </div>
+
+                <!-- Custom Audio Controls Bar -->
+                <div class="player-controls">
+                    <button id="btn-shuffle" class="ctrl-btn" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+                    <button id="btn-prev" class="ctrl-btn secondary" title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+                    <button id="btn-play" class="ctrl-btn play-pause-btn" title="Play"><i class="fa-solid fa-play"></i></button>
+                    <button id="btn-next" class="ctrl-btn secondary" title="Next"><i class="fa-solid fa-forward-step"></i></button>
+                    <button id="btn-repeat" class="ctrl-btn" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+                </div>
+
+                <!-- Volume and settings bar -->
+                <div class="extra-controls">
+                    <div class="volume-container">
+                        <button id="btn-mute" class="volume-btn" title="Mute/Unmute"><i class="fa-solid fa-volume-high"></i></button>
+                        <div class="volume-slider-container" id="volume-container">
+                            <div class="volume-slider" id="volume-slider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2026 Quiet Asylum. Completed June 2026.</p>
+    </footer>
+
+    <!-- Audio Element -->
+    <audio id="audio-player"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>

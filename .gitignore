@@ -1,0 +1,8 @@
+# Git Ignore for Quiet Asylum Website
+node_modules/
+.DS_Store
+*.zip
+*.log
+.gemini/
+.idea/
+.vscode/
