@@ -83,37 +83,8 @@ const trackCountEl = document.getElementById('track-count');
 const canvas = document.getElementById('visualizer-canvas');
 const canvasCtx = canvas.getContext('2d');
 
-// Lock Screen Elements and Logic
-const CORRECT_KEY = 'BF-F58J-FQT2-GODV';
-const lockScreen = document.getElementById('lock-screen');
-const licenseInput = document.getElementById('license-input');
-const btnUnlock = document.getElementById('btn-unlock');
-const lockError = document.getElementById('lock-error');
-
-function checkLock() {
-    const savedKey = localStorage.getItem('backfeed_license_key');
-    if (savedKey === CORRECT_KEY) {
-        lockScreen.classList.add('hidden');
-    } else {
-        lockScreen.classList.remove('hidden');
-    }
-}
-
-function handleUnlock() {
-    const enteredKey = licenseInput.value.trim().toUpperCase();
-    if (enteredKey === CORRECT_KEY) {
-        localStorage.setItem('backfeed_license_key', enteredKey);
-        lockScreen.classList.add('hidden');
-        lockError.textContent = '';
-    } else {
-        lockError.textContent = 'Invalid Activation Key';
-        licenseInput.value = '';
-    }
-}
-
 // Initialize Website
 function init() {
-    checkLock();
     loadAlbum(currentAlbumKey);
     setVolume(volume);
     
@@ -127,11 +98,6 @@ function init() {
     
     btnDream.addEventListener('click', () => switchAlbum('dream'));
     btnHappy.addEventListener('click', () => switchAlbum('happy'));
-    
-    btnUnlock.addEventListener('click', handleUnlock);
-    licenseInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleUnlock();
-    });
     
     audio.addEventListener('timeupdate', updateProgress);
     audio.addEventListener('ended', onTrackEnded);
