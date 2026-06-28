@@ -384,28 +384,30 @@ function drawVisualizer() {
     
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
     
-    const barWidth = (canvas.width / bufferLength) * 1.5;
+    const barWidth = (canvas.width / bufferLength) * 1.6;
     let barHeight;
     let x = 0;
     
-    // Get colors matching active theme
     const style = getComputedStyle(document.body);
-    const primaryColor = style.getPropertyValue('--primary').trim() || '#8b5cf6';
+    const primaryColor = style.getPropertyValue('--primary').trim() || '#a855f7';
     const secondaryColor = style.getPropertyValue('--secondary').trim() || '#3b82f6';
     
     for (let i = 0; i < bufferLength; i++) {
-        barHeight = (dataArray[i] / 255) * (canvas.height * 0.7);
+        barHeight = (dataArray[i] / 255) * (canvas.height * 0.75);
         
-        // Draw elegant gradient rounded bars
+        // Add subtle glow to visualizer lines
+        canvasCtx.shadowBlur = 8;
+        canvasCtx.shadowColor = primaryColor;
+        
         const grad = canvasCtx.createLinearGradient(0, canvas.height, 0, canvas.height - barHeight);
-        grad.addColorStop(0, primaryColor);
+        grad.addColorStop(0, primaryColor + '20'); // Translucent base
+        grad.addColorStop(0.5, primaryColor);
         grad.addColorStop(1, secondaryColor);
         
         canvasCtx.fillStyle = grad;
         
-        // Round top corners
         canvasCtx.beginPath();
-        canvasCtx.roundRect(x, canvas.height - barHeight, barWidth - 4, barHeight, 6);
+        canvasCtx.roundRect(x, canvas.height - barHeight, barWidth - 6, barHeight, [4, 4, 0, 0]);
         canvasCtx.fill();
         
         x += barWidth;
