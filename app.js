@@ -3,7 +3,7 @@
 // Tracks Database
 const albums = {
     dream: {
-        title: "Only When I Dream About It",
+        title: "V. Only When I Dream About It",
         cover: "assets/images/dream-cover.jpg",
         artist: "Quiet Asylum",
         tracks: [
@@ -21,7 +21,7 @@ const albums = {
         folder: "only-when-i-dream"
     },
     happy: {
-        title: "I Hope You're Happy",
+        title: "VI. I Hope You're Happy",
         cover: "assets/images/happy-cover.png",
         artist: "Quiet Asylum",
         tracks: [
